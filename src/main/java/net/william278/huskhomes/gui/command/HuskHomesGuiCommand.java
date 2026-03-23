@@ -20,22 +20,23 @@
 package net.william278.huskhomes.gui.command;
 
 import de.themoep.minedown.adventure.MineDown;
+import io.papermc.paper.command.brigadier.BasicCommand;
+import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.william278.desertwell.about.AboutMenu;
 import net.william278.huskhomes.gui.HuskHomesGui;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class HuskHomesGuiCommand implements CommandExecutor, TabExecutor {
+public class HuskHomesGuiCommand implements BasicCommand {
+    private static final String COMMAND_PERMISSION = "huskhomesgui.command";
     private final HuskHomesGui plugin;
     private final AboutMenu aboutMenu;
 
@@ -63,8 +64,8 @@ public class HuskHomesGuiCommand implements CommandExecutor, TabExecutor {
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command,
-                             @NotNull String label, @NotNull String[] args) {
+    public void execute(@NotNull CommandSourceStack commandSourceStack, @NotNull String[] args) {
+        final CommandSender sender = commandSourceStack.getSender();
         final Audience audience;
         if (sender instanceof Player player) {
             audience = plugin.getAudiences().player(player.getUniqueId());
@@ -80,13 +81,16 @@ public class HuskHomesGuiCommand implements CommandExecutor, TabExecutor {
         } else {
             audience.sendMessage(aboutMenu.toComponent());
         }
-        return true;
     }
 
     @Override
-    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command,
-                                      @NotNull String label, @NotNull String[] args) {
+    public Collection<String> suggest(@NotNull CommandSourceStack commandSourceStack, @NotNull String[] args) {
         return this.filter(List.of("reload", "about"), args);
+    }
+
+    @Override
+    public String permission() {
+        return COMMAND_PERMISSION;
     }
 
     @NotNull

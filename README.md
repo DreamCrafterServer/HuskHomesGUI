@@ -1,3 +1,8 @@
+
+1. we made this plugin compatible with folia servers and tested with HuskHomes 4.9.9
+2. since we removed the AnvilGUI dependency and replaced it with Dialog added in 1.21.6, **the minimum version for this fork is now 1.21.6.**
+3. we decided to turn this plugin into Paper Plugin, so please use a Paper server. (HuskHomes is already a paper plugin, so we don't think this will be a problem.)
+
 > 🚨 **HuskHomesGUI has been discontinued** 🚨 and is no longer actively maintained. It may cease to function with newer versions of Minecraft/HuskHomes. We no longer provide support for it. Thank you for your understanding.
 
 <!--suppress ALL -->
