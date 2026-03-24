@@ -21,10 +21,7 @@ package net.william278.huskhomes.gui.menu;
 
 import de.themoep.inventorygui.InventoryGui;
 import de.themoep.inventorygui.StaticGuiElement;
-import net.wesjd.anvilgui.AnvilGUI;
-import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.gui.HuskHomesGui;
-import net.william278.huskhomes.gui.HuskHomesGuiPlugin;
 import net.william278.huskhomes.gui.dialog.DescEditing;
 import net.william278.huskhomes.gui.dialog.NameEditing;
 import net.william278.huskhomes.position.Home;

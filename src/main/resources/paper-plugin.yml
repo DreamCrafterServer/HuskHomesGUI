@@ -2,7 +2,7 @@ name: HuskHomesGUI
 main: net.william278.huskhomes.gui.HuskHomesGui
 version: '${version}'
 description: '${description}'
-api-version: '1.21.11'
+api-version: '1.21'
 author: 'William278'
 website: 'https://william278.net/'
 folia-supported: true
